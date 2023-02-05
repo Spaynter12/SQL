@@ -1,0 +1,33 @@
+-- Create an Athletic Training Store database
+CREATE TABLE at_supplies (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, brand TEXT, price INTEGER);
+
+INSERT INTO at_supplies VALUES (1, "bandaid", 100, "cvs", 2.99);
+INSERT INTO at_supplies VALUES (2, "1/2 inch white tape", 23, "jaybird", 14.99);
+INSERT INTO at_supplies VALUES (3, "2 inch powerflex", 20, "powerflex", 12);
+INSERT INTO at_supplies VALUES (4, "1 inch white tape", 12, "jaybird", 12.99);
+INSERT INTO at_supplies VALUES (5, "scissors", 30, "cramer", 24.99);
+INSERT INTO at_supplies VALUES (6, "6' ace wrap", 4, "hospital", 2.01);
+INSERT INTO at_supplies VALUES (7, "glasses", 10, "oakley", 69.99);
+INSERT INTO at_supplies VALUES (8, "tweezers", 20, "s&p", 3.00);
+INSERT INTO at_supplies VALUES (9, "sharks", 5, "cramer", 8.99);
+INSERT INTO at_supplies VALUES (10, "do.nut pads", 70, "mueller", .99);
+INSERT INTO at_supplies VALUES (11, "water bottles", 200, " mueller", 3.50);
+INSERT INTO at_supplies VALUES (12, "gatorade", 4, "gatorade", 15.00);
+INSERT INTO at_supplies VALUES (13, "kits", 3, "cramer", 150);
+INSERT INTO at_supplies VALUES (14, "rollers", 6, "cramer", 7.80);
+INSERT INTO at_supplies VALUES (15, "cups", 120, "gatorade", 3.99);
+
+--display the database orderd by price
+SELECT * FROM at_supplies
+ORDER BY price DESC;
+
+-- what is the avg price of items from cramer
+SELECT AVG(price) AS "avg cramer item price" 
+FROM at_supplies
+WHERE brand = "cramer";
+
+--what are the 5 lowest quantity items?
+SELECT name, price, quantity
+FROM at_supplies
+ORDER BY quantity ASC
+LIMIT 5
