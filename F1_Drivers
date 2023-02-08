@@ -1,0 +1,71 @@
+--Create table about the people and what they do here
+CREATE Table F1_Drivers (
+    id INTEGER PRIMARY KEY,
+    fullname TEXT,
+    age INTEGER,
+    nationality TEXT);
+    
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Daniel Ricciardo", 32, "Australian");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Lewis Hamilton", 37, "British");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Pierre Gasly", 27, "French");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Sergio Perez", 32, "Mexican");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Max Verstappen", 25, "Dutch");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Fernando Alonso", 41, "Spanish");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Sebastian Vettel", 34, "German");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Charles Leclerc", 24, "Monaco");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Lando Norris", 23, "British");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Nicholas Latifi", 27, "Canadian");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Mick Schumacher", 23, "German");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Lance Stroll", 24, "Canadian");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Kevin Magnussen", 30, "Danish");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Yuki Tsunoda", 22, "Japanese");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Alex Albon", 26, "Thai");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Zhou Guanyu", 23, "Chinese");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Esteban Ocon", 26, "French");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Carlos Sainz", 28, "Spanish");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("George Russell", 24, "British");
+INSERT INTO F1_Drivers (fullname, age, nationality) VALUES ("Valterri Bottas", 33, "Finnish");
+
+
+
+
+CREATE TABLE teams (
+    id INTEGER PRIMARY KEY,
+    Driver_id INTEGER,
+    team TEXT,
+    number INTEGER);
+    
+INSERT INTO teams (Driver_id, team, number) VALUES (1, "Mclaren", 3);
+INSERT INTO teams (Driver_id, team, number) VALUES (2, "Mercedes AMG", 44);
+INSERT INTO teams (Driver_id, team, number) VALUES (3, "Alpha Tauri", 10);
+INSERT INTO teams (Driver_id, team, number) VALUES (4, "Redbull", 11);
+INSERT INTO teams (Driver_id, team, number) VALUES (5, "Redbull", 1);
+INSERT INTO teams (Driver_id, team, number) VALUES (6, "Alpine", 14);
+INSERT INTO teams (Driver_id, team, number) VALUES (7, "Aston Martin", 5);
+INSERT INTO teams (Driver_id, team, number) VALUES (8, "Ferrari", 16);
+INSERT INTO teams (Driver_id, team, number) VALUES (9, "Mclaren", 4);
+INSERT INTO teams (Driver_id, team, number) VALUES (10, "Williams", 6);
+INSERT INTO teams (Driver_id, team, number) VALUES (11, "Haas", 47);
+INSERT INTO teams (Driver_id, team, number) VALUES (12, "Aston Martin", 18);
+INSERT INTO teams (Driver_id, team, number) VALUES (13, "Haas", 20);
+INSERT INTO teams (Driver_id, team, number) VALUES (14, "Alpha Tauri", 22);
+INSERT INTO teams (Driver_id, team, number) VALUES (15, "Williams", 23);
+INSERT INTO teams (Driver_id, team, number) VALUES (16, "Alpha Romeo", 24);
+INSERT INTO teams (Driver_id, team, number) VALUES (17, "Alpine", 31);
+INSERT INTO teams (Driver_id, team, number) VALUES (18, "Ferrari", 55);
+INSERT INTO teams (Driver_id, team, number) VALUES (19, "Mercedes AMG", 63);
+INSERT INTO teams (Driver_id, team, number) VALUES (20, "Alpha Romeo", 77);
+
+--All driver information by driver number
+SELECT * from f1_drivers
+JOIN teams
+ON teams.driver_id = f1_drivers.id
+ORDER BY teams.number ASC;
+
+--F1_drivers names, nationality and teams
+SELECT f1_drivers.fullname, f1_drivers.nationality, teams.team
+FROM f1_drivers
+JOIN teams
+ON f1_drivers.id = teams.driver_id;
+
+
